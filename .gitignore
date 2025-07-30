@@ -1,0 +1,10 @@
+# Ignore all compiled C++ output files
+*.out
+*.o
+*.exe
+
+# Ignore all executable files with no extension (like 'vector', 'pairs')
+stl/*
+!stl/*.cpp
+
+
