@@ -59,4 +59,14 @@ int main(){
         cout<<it<<" ";
     }
     cout<<endl;
+
+    //insert function
+    vector<int>c(2,100);
+    c.insert(c.begin(),300); //{300,100,100}
+    c.insert(c.begin()+1, 2, 10); //{300,10,10,100,100}
+
+    cout<<"size of vector c : "<<c.size()<<endl;
+
+    c.pop_back(); //{300,10,10,100}
+
 }
