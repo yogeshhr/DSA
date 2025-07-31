@@ -43,5 +43,20 @@ int main(){
     for(auto it : v){
         cout<<it<<" ";
     }
+    cout<<endl;
 
+
+    vector<int> e(5,9);
+    cout<<"before erasing : ";
+    for(auto it : e){
+        cout<<it<<" ";
+    }
+    cout<<endl;
+    //erase
+    e.erase(e.begin()+1);
+    cout<<"after erasing : ";
+    for(auto it : e){
+        cout<<it<<" ";
+    }
+    cout<<endl;
 }
