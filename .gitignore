@@ -1,10 +1,9 @@
-# Ignore all compiled C++ output files
-*.out
-*.o
-*.exe
+# Ignore everything
+*
 
-# Ignore all executable files with no extension (like 'vector', 'pairs')
-stl/*
-!stl/*.cpp
+# But keep C++ source/header files
+!*.cpp
+!*.h
 
-
+# Keep this file itself
+!.gitignore
