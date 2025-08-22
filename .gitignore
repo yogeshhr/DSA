@@ -7,3 +7,15 @@
 
 # Keep this file itself
 !.gitignore
+# Ignore everything
+*
+
+# But keep C++ source/header files
+!*.cpp
+!*.h
+
+# Keep this file itself
+!.gitignore
+
+# Keep all folders (so empty ones remain)
+!*/
