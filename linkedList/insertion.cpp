@@ -5,6 +5,11 @@ struct node{
     int data;
     node* next;
 
+    node(int data1 , node* next1){
+        data = data1;
+        next = next1;
+    }
+
     node(int data1){
         data = data1;
         next = NULL;
@@ -32,11 +37,48 @@ node* convertArr2LL(vector<int>arr){
 }
 
 node* insertHead(node* head , int val){
+    node* temp = new node(val , head);
+    return temp;
+    //or
+    /*
     node* temp = new node(val);
     temp->next = head;
     return temp;
+    */
 }
 
+node* insertTail(node* head , int val){
+    if(head == NULL) return new node(val);
+    node* temp = head;
+    while(temp->next != NULL){
+        temp = temp->next;
+    }
+    node* newNode = new node(val);
+    temp->next = newNode;
+    return head;
+}
+
+node* insertAtK(node* head ,int val , int k){
+    if(head == NULL){
+        if(k==1) return new node(val);
+        else return head;
+    }
+
+    if(k == 1) return new node(val , head);
+
+    int count = 0;
+    node* temp = head;
+    while(temp != NULL){
+        count++;
+        if(count == (k-1)){
+            node* newNode = new node(val , temp->next);
+            temp->next = newNode;
+            break;
+        }
+        temp = temp->next;
+    }
+    return head; 
+}
 int main(){
     vector<int>arr = {2,4,5,6,3,7};
     node* head = convertArr2LL(arr);
@@ -45,6 +87,14 @@ int main(){
 
     head = insertHead(head , 1);
     cout<<"list after insertion at head : ";
+    print(head);
+
+    head = insertTail(head , 100);
+    cout<<"list after insertion at tail : ";
+    print(head);
+
+    head = insertAtK(head , 11 , 5);
+    cout<<"list after insertion at K position : ";
     print(head);
     
 }
