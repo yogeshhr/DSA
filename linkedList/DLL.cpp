@@ -23,7 +23,8 @@ struct Node{
 void print(Node* head){
     Node* temp = head;
     while(temp){
-        cout << temp->data << " ";
+        cout << temp->data;
+        if(temp->next) cout<< " <-> "; // only print arrow if next exists
         temp = temp->next;
     }
     cout<<endl;
