@@ -79,6 +79,27 @@ node* insertAtK(node* head ,int val , int k){
     }
     return head; 
 }
+
+node* insertBeforeValue(node* head ,int val , int posVal){
+    if(head == NULL){
+        return NULL;
+    }
+
+    if(head -> data == posVal) return new node(val , head);
+
+    node* temp = head;
+    while(temp->next != NULL){
+        
+        if(temp->next->data == posVal){
+            node* newNode = new node(val , temp->next);
+            temp->next = newNode;
+            break;
+        }
+        temp = temp->next;
+    }
+    return head; 
+}
+
 int main(){
     vector<int>arr = {2,4,5,6,3,7};
     node* head = convertArr2LL(arr);
@@ -95,6 +116,10 @@ int main(){
 
     head = insertAtK(head , 11 , 5);
     cout<<"list after insertion at K position : ";
+    print(head);
+
+    head = insertBeforeValue(head , 101 , 5);
+    cout<<"list after insertion at before given value : ";
     print(head);
     
 }
