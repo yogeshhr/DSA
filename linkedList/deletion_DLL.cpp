@@ -54,6 +54,22 @@ Node* deleteHead(Node* head){
     return head;
 }
 
+Node* deleteTail(Node* head){
+    if(head == NULL || head->next == NULL){
+        return NULL;
+    }
+
+    Node* tail = head;
+    while(tail->next != NULL){
+        tail = tail->next;
+    }
+    Node* prev = tail->back;
+    prev->next = nullptr;
+    tail->back = nullptr;
+    delete tail;
+    return head;
+}
+
 int main(){
         vector<int> arr = {2, 5, 8, 7};
         
@@ -61,7 +77,12 @@ int main(){
         cout<<"original list : ";
         print(head);
 
-        head = deleteHead(head);
-        cout<<"list after deletion of head : ";
+        // head = deleteHead(head);
+        // cout<<"list after deletion of head : ";
+        // print(head);
+
+        head = deleteTail(head);
+        cout<<"list after deletion of tail : ";
         print(head);
+        
 }
