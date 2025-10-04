@@ -48,14 +48,24 @@ Node* insertHead(Node* head ,int val){
     return newHead;
 }
 
-Node* insertTail(Node* head , int val){
+Node* insertbeforeTail(Node* head , int val){
     Node* temp = head;
     while(temp->next->next != NULL){
         temp = temp->next;
     }
-    Node* tail = new Node(val , temp->next , temp);
+    Node* newNode = new Node(val , temp->next , temp);
+    temp->next->back = newNode;
+    temp->next = newNode;
+    return head;
+}
+
+Node* insertafterTail(Node* head , int val){
+    Node* temp = head;
+    while(temp->next != NULL){
+        temp = temp->next;
+    }
+    Node* tail = new Node(val , nullptr , temp);
     temp->next = tail;
-    temp->next->back = tail;
     return head;
 }
 
@@ -69,7 +79,11 @@ int main(){
         // cout<<"list after insertion of head : ";
         // print(head);
 
-        head = insertTail(head , 6);
-        cout<<"list after insertion before tail : ";
+        // head = insertbeforeTail(head , 6);
+        // cout<<"list after insertion before tail : ";
+        // print(head);
+
+        head = insertafterTail(head , 6);
+        cout<<"list after insertion after tail : ";
         print(head);
 }
