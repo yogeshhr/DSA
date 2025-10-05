@@ -106,6 +106,13 @@ Node* insertKthNode(Node* head , int val , int k){
     return head;
 }
 
+void insertBeforeNode(Node* node , int val){
+    Node* prev = node->back;
+    Node* newNode = new Node(val , node , prev);
+    prev->next = newNode;
+    node->back = newNode;
+}
+
 int main(){
         vector<int> arr = {2, 5, 8, 7};
         
@@ -124,7 +131,11 @@ int main(){
         // cout<<"list after insertion after tail : ";
         // print(head);
 
-        head = insertKthNode(head , 6 , 5);
-        cout<<"list after insertion at kth node : ";
+        // head = insertKthNode(head , 6 , 5);
+        // cout<<"list after insertion at kth node : ";
+        // print(head);
+
+        insertBeforeNode(head->next , 101);
+        cout<<"list after insertion before node : ";
         print(head);
 }
