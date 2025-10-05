@@ -69,6 +69,43 @@ Node* insertafterTail(Node* head , int val){
     return head;
 }
 
+Node* insertKthNode(Node* head , int val , int k){
+    if(head == nullptr && k==1){
+        return new Node(val);
+    }
+    Node* temp = head;
+    int count = 1;
+    
+    if(k==1){
+        Node* newNode = new Node(val , temp , nullptr);
+        head->back = newNode;
+        return newNode;
+    }
+    while(temp != NULL && count < k-1){
+        temp = temp->next;
+        count++;
+    }
+    
+    if(temp == NULL){
+        cout<<"position out of range\n";
+        return head;
+    }
+    
+    if(temp->next == NULL && count == k-1){
+        Node* newNode = new Node(val , nullptr , temp);
+        temp->next = newNode;
+        return head;
+    }
+
+    
+    Node* newNode = new Node(val , temp->next , temp);
+    temp->next->back = newNode;
+    temp->next = newNode;
+    
+    
+    return head;
+}
+
 int main(){
         vector<int> arr = {2, 5, 8, 7};
         
@@ -83,7 +120,11 @@ int main(){
         // cout<<"list after insertion before tail : ";
         // print(head);
 
-        head = insertafterTail(head , 6);
-        cout<<"list after insertion after tail : ";
+        // head = insertafterTail(head , 6);
+        // cout<<"list after insertion after tail : ";
+        // print(head);
+
+        head = insertKthNode(head , 6 , 5);
+        cout<<"list after insertion at kth node : ";
         print(head);
 }
