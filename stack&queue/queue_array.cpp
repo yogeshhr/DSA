@@ -38,5 +38,5 @@ int main() {
   cout << "The deleted element is: " << s.Pop() << endl;
   cout << "Top of the stack after removing element: " << s.Top() << endl;
   cout << "Size of the stack after removing element: " << s.Size();
-
+  cout << "Top of the stack: " << s.Top() << endl;
 }
