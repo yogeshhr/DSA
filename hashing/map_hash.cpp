@@ -22,4 +22,8 @@ int main(){
         cin>>number;
         cout<<number<<" appears "<<mpp[number]<<" times"<<endl;
     }
+
+    for(auto it:mpp){
+        cout<<it.first<<"->"<<it.second<<endl;
+    }
 }

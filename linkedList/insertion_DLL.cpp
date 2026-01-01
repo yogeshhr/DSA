@@ -135,7 +135,7 @@ int main(){
         // cout<<"list after insertion at kth node : ";
         // print(head);
 
-        insertBeforeNode(head->next , 101);
+        insertBeforeNode(head->next->next , 101);
         cout<<"list after insertion before node : ";
         print(head);
 }
