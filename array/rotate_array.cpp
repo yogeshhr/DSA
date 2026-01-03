@@ -13,10 +13,10 @@ public:
             temp[i - n + k] = arr[i];
         }
 
+        
         for (int i = n - k - 1; i >= 0; i--) {
             arr[i + k] = arr[i];
         }
-
         for (int i = 0; i < k; i++) {
             arr[i] = temp[i];
         }
